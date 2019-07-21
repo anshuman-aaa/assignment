@@ -1,8 +1,16 @@
 
 svg {
+    /* position: absolute; */
+    /* top: 15%; */
     font: 12px sans-serif;
+    display: block;
+    margin: 0 auto;
+    margin-top: -8%;
 }
-
+.head-main{
+    text-align: center;
+    text-decoration: underline;
+}
 text {
     pointer-events: none;
 }
