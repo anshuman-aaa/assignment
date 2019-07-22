@@ -5,26 +5,20 @@ var data = [["Anand", ["Rajesh Khanna", "Sumita Sanyal", "Amitabh Bachchan"]],
 ["3 Idiots", ["kareena kapoor", "Amir Khan","Mona Singh" ,"Sarman Joshi"]], 
 ["Gangs of Wasseypur", [ "Richa Chadha"," Manoj Bajpayee","Huma Queressi",  "Nawazuddin Siddiqui"]],
  ["Swades", ["Gayatri Joshi", " Shah Rukh Khan"]], 
- ["Zindagi Na Milegi Dobara", ["Hrithik Roshan", "Farhan Akhtar", "Abhay Deol", "Katrina Kaif"]],
   ["Special 26", ["Akshay Kumar", " Anupam Kher", "Manoj Bajpayee", "Jimmy Sheirgill", "Kajal Aggarwal"]], 
+  ["Kuch Kuch Hota Hai", ["Shah Rukh Khan", "Kajol", "Rani Mukerji", "Anupam Kher", "Salman Khan" ,"Johnny Lever"]], 
+  ["Golmaal", ["Ajay Devgn", "Arshad Warsi", "Tusshar Kapoor"]], 
+  ["Andhadhun", ["Ayushmann Khurrana", "Radhika Apte","Tabu"]], 
+  ["Badhai Ho", [ "Ayushmann Khurrana"," Sanya Malhotra"]], 
+  ["Kuch Kuch Locha Hai", ["Sunny Leone", "Ram Kapoor"]], 
+  ["Golmaal Returns", ["Ajay Devgn", "Arshad Warsi", "Tusshar Kapoor", "Johnny Lever", "Kareena Kapoor"]], 
+  ["Lage Raho Munna Bhai", ["Sanjay Dutt", "Arshad Warsi", "Vidya Balan", "Dia Mirza"]] 
+  ["Article 15", ["Isha Talwar", "Ayushmann Khurrana", "Sayani Gupta"]], 
   ["Border", ["Sunny Deol", "	Jackie Shroff", "Sunil Shetty", "Tabu", "Pooja Bhatt"]], 
   ["Kabhi Khushi Kabhie Gham", ["Shah Rukh Khan", " Kajol", "Hrithik Roshan", "Kareena Kapoor", "Amitabh Bachchan" , "Jaya Bachchan"]], 
-  ["Kuch Kuch Hota Hai", ["Shah Rukh Khan", "Kajol", "Rani Mukerji", "Anupam Kher", "Salman Khan" ,"Johnny Lever"]], 
-  ["Golmaal", ["Ajay Devgn", "Arshad Warsi", "Tusshar Kapoor", "Johnny Lever", "Kareena Kapoor"]], 
-  ["Lage Raho Munna Bhai", ["Sanjay Dutt", "Arshad Warsi", "Vidya Balan", "Dia Mirza"]],
-  ["Anand", ["Rajesh Khanna", "Sumita Sanyal", "Amitabh Bachchan"]], 
-  ["3 Idiots", ["kareena kapoor", "Amir Khan","Mona Singh" ,"Sarman Joshi"]], 
-  ["Gangs of Wasseypur", [ "Richa Chadha"," Manoj Bajpayee","Huma Queressi",  "Nawazuddin Siddiqui"]], 
-  ["Swades", ["Gayatri Joshi", " Shah Rukh Khan"]], 
-  ["Zindagi Na Milegi Dobara", ["Hrithik Roshan", "Farhan Akhtar", "Abhay Deol", "Katrina Kaif"]], 
-  ["Special 26", ["Akshay Kumar", " Anupam Kher", "Manoj Bajpayee", "Jimmy Sheirgill", "Kajal Aggarwal"]], 
-  ["Border", ["Sunny Deol", "	Jackie Shroff", "Sunil Shetty", "Tabu", "Pooja Bhatt"]], 
-  ["Kabhi Khushi Kabhie Gham", ["Shah Rukh Khan", " Kajol", "Hrithik Roshan", "Kareena Kapoor", "Amitabh Bachchan" , "Jaya Bachchan"]], 
-  ["Kuch Kuch Hota Hai", ["Shah Rukh Khan", "Kajol", "Rani Mukerji", "Anupam Kher", "Salman Khan" ,"Johnny Lever"]], 
-  ["Golmaal", ["Ajay Devgn", "Arshad Warsi", "Tusshar Kapoor", "Johnny Lever", "Kareena Kapoor"]], 
-  ["Lage Raho Munna Bhai", ["Sanjay Dutt", "Arshad Warsi", "Vidya Balan", "Dia Mirza"]] ];
-
-
+  ["Munna Bhai MBBS", ["Sanjay Dutt", "Arshad Warsi", "Boman Irani", "Sunil DUtt"]],
+  ["Zindagi Na Milegi Dobara", ["Hrithik Roshan", "Farhan Akhtar", "Abhay Deol", "Katrina Kaif"]],
+];
 var outer = d3.map();
 var inner = [];
 var links = [];
@@ -101,11 +95,11 @@ var color = d3.scale.linear()
     .range([colors.length-1, 0])
     .clamp(true);
 
-var diameter = 960;
-var rect_width = 180;
-var rect_height = 25;
+var diameter = 1000;
+var rect_width = 200;
+var rect_height = 30;
 
-var link_width = "1px"; 
+var link_width = "1.5px"; 
 
 var il = data.inner.length;
 var ol = data.outer.length;
@@ -140,9 +134,9 @@ data.inner = data.inner.map(function(d, i) {
 
 function get_color(name)
 {
-    var c = Math.round(color(name));
+    var c = 'red';
     if (isNaN(c))
-        return '#dddddd';	// fallback color
+        return '#7EF2FB' ;	// fallback color
     
     return colors[c];
 }
@@ -194,7 +188,7 @@ var onode = svg.append('g').selectAll(".outer_node")
   
 onode.append("circle")
     .attr('id', function(d) { return d.id })
-    .attr("r", 4.5);
+    .attr("r", 7);
   
 onode.append("circle")
     .attr('r', 20)
